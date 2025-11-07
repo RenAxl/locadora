@@ -1,3 +1,16 @@
+<?php
+
+$pag_inicial = 'home';
+
+if(@$_GET['pagina'] != ""){
+	$pagina = @$_GET['pagina'];
+}else{
+	$pagina = $pag_inicial;
+}
+
+?>
+
+
 <!DOCTYPE HTML>
 <html>
 
@@ -119,6 +132,17 @@
 									<i class="fa fa-dashboard"></i> <span>Home</span>
 								</a>
 							</li>
+							<li class="treeview <?php echo $menu_pessoas ?>">
+								<a href="#">
+									<i class="fa fa-users"></i>
+									<span>Pessoas</span>
+									<i class="fa fa-angle-left pull-right"></i>
+								</a>
+								<ul class="treeview-menu">
+									<li class="<?php echo $usuarios ?>"><a href="usuarios"><i class="fa fa-angle-right"></i> Usuários</a></li>
+									
+								</ul>
+							</li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -225,7 +249,7 @@
 		<!-- main content start-->
 		<div id="page-wrapper">
 			<?php
-			require_once('paginas/home.php');
+			require_once('paginas/'.$pagina.'.php');
 			?>
 		</div>
 
