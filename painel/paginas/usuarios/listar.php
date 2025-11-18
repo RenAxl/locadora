@@ -70,6 +70,8 @@ HTML;
 </table>
 HTML;
 
+}else{
+	echo '<small>Nenhum Registro Encontrado!</small>';
 }
 
 ?>
