@@ -10,7 +10,7 @@ if($linhas > 0){
 
 echo <<<HTML
 <small>
-  <table class="table table-hover" >
+  <table class="table table-hover" id="tabela">
     <thead>
       <tr>
         <th>Nome</th>
@@ -75,3 +75,15 @@ HTML;
 }
 
 ?>
+
+<script type="text/javascript">
+	$(document).ready( function () {		
+    $('#tabela').DataTable({
+    	"language" : {
+            //"url" : '//cdn.datatables.net/plug-ins/1.13.2/i18n/pt-BR.json'
+        },
+        "ordering": false,
+		"stateSave": true
+    });
+} );
+</script>
