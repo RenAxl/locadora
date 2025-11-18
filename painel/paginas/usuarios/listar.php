@@ -1,5 +1,13 @@
 <?php
 
+$tabela = 'usuarios';
+require_once("../../../conexao.php");
+
+$query = $pdo->query("SELECT * from $tabela order by id desc");
+$res = $query->fetchAll(PDO::FETCH_ASSOC);
+$linhas = @count($res);
+if($linhas > 0){
+
 echo <<<HTML
 <small>
   <table class="table table-hover" >
@@ -14,15 +22,32 @@ echo <<<HTML
       </tr>
     </thead>
     <tbody>
+HTML;
+
+for($i=0; $i<$linhas; $i++){
+    $id = $res[$i]['id'];
+    $nome = $res[$i]['nome'];
+    $telefone = $res[$i]['telefone'];
+    $email = $res[$i]['email'];
+    $senha = $res[$i]['senha'];
+    $foto = $res[$i]['foto'];
+    $nivel = $res[$i]['nivel'];
+    $endereco = $res[$i]['endereco'];
+    $ativo = $res[$i]['ativo'];
+    $data = $res[$i]['data'];
+
+    $dataF = implode('/', array_reverse(@explode('-', $data)));
+
+  echo <<<HTML
       <tr>
         <td>
         <input type="checkbox"  class="form-check-input">
-        Exemplo
+        {$nome}
         </td>
-        <td class="esc">(31) 99999-9999</td>
-        <td class="esc">exemplo@teste.com</td>
-        <td class="esc">Admin</td>
-        <td class="esc"><img src="images/perfil/sem-foto.jpg" width="25px"></td>
+        <td class="esc">{$telefone}</td>
+        <td class="esc">{$email}</td>
+        <td class="esc">{$nivel}</td>
+        <td class="esc"><img src="images/perfil/{$foto}" width="25px"></td>
         <td>
 	          <big><a href="#" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
 
@@ -35,10 +60,16 @@ echo <<<HTML
             <big><a class="" href="#" title="Dar Permissões"><i class="fa fa-lock text-primary"></i></a></big>
 
         </td>      
-</tr>
-    </tbody>
-  </table>
-</small>
+      </tr>
 HTML;
+
+  }
+
+  echo <<<HTML
+</tbody>
+</table>
+HTML;
+
+}
 
 ?>
