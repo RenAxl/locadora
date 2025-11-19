@@ -16,3 +16,21 @@ function listar(p1, p2, p3, p4, p5, p6){
         }
     });
 }
+
+function ativar(id, acao){	
+    $.ajax({
+        url: 'paginas/' + pag + "/mudar-status.php",
+        method: 'POST',
+        data: {id, acao},
+        dataType: "html",
+
+        success:function(mensagem){
+            if (mensagem.trim() == "Alterado com Sucesso") {
+                listar();
+            } else {
+                $('#mensagem-excluir').addClass('text-danger')
+                $('#mensagem-excluir').text(mensagem)
+            }
+        }
+    });
+}

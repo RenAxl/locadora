@@ -38,8 +38,20 @@ for($i=0; $i<$linhas; $i++){
 
     $dataF = implode('/', array_reverse(@explode('-', $data)));
 
+  if($ativo == 'Sim'){
+	$icone = 'fa-check-square';
+	$titulo_link = 'Desativar Usuário';
+	$acao = 'Não';
+	$classe_ativo = '';
+	}else{
+      $icone = 'fa-square-o';
+      $titulo_link = 'Ativar Usuário';
+      $acao = 'Sim';
+      $classe_ativo = '#c4c4c4';
+	}
+
   echo <<<HTML
-      <tr>
+      <tr style="color:{$classe_ativo}">
         <td>
         <input type="checkbox"  class="form-check-input">
         {$nome}
@@ -55,7 +67,7 @@ for($i=0; $i<$linhas; $i++){
 
             <big><a href="#" title="Mostrar Dados"><i class="fa fa-info-circle text-primary"></i></a></big>
             
-            <big><a href="#" title="Ativar usuário"><i class="fa fa-check-square"></i></a></big>
+            <big><a href="#" onclick="ativar('{$id}', '{$acao}')" title="{$titulo_link}"><i class="fa {$icone} text-success"></i></a></big>
 
             <big><a class="" href="#" title="Dar Permissões"><i class="fa fa-lock text-primary"></i></a></big>
 
