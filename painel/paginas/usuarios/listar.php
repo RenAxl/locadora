@@ -70,7 +70,7 @@ for($i=0; $i<$linhas; $i++){
 
 		        <a href="#" title="Excluir usuário" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><big><i class="fa fa-trash-o text-danger"></i></big></a>
 
-            <big><a href="#" title="Mostrar Dados"><i class="fa fa-info-circle text-primary"></i></a></big>
+            <big><a href="#" onclick="mostrar('{$nome}','{$email}','{$telefone}','{$endereco}','{$ativo}','{$dataF}', '{$senha}', '{$nivel}', '{$foto}')" title="Mostrar Dados"><i class="fa fa-info-circle text-primary"></i></a></big>
             
             <big><a href="#" onclick="ativar('{$id}', '{$acao}')" title="{$titulo_link}"><i class="fa {$icone} text-success"></i></a></big>
 
@@ -103,4 +103,22 @@ HTML;
 		"stateSave": true
     });
 } );
+
+	function mostrar(nome, email, telefone, endereco, ativo, data, senha, nivel, foto){
+		    	
+    	$('#titulo_dados').text(nome);
+    	$('#email_dados').text(email);
+    	$('#telefone_dados').text(telefone);
+    	$('#endereco_dados').text(endereco);
+    	$('#ativo_dados').text(ativo);
+    	$('#data_dados').text(data);
+    	
+    	$('#nivel_dados').text(nivel);
+    	$('#foto_dados').attr("src", "images/perfil/" + foto);
+    	
+
+    	$('#modalDados').modal('show');
+	}
+
+
 </script>
