@@ -78,3 +78,14 @@ $("#form").submit(function () {
     });
 
 });
+
+	function limparCampos(){
+		$('#id').val('');
+    	$('#nome').val('');
+    	$('#email').val('');
+    	$('#telefone').val('');
+    	$('#endereco').val('');
+
+    	$('#ids').val('');
+    	$('#btn-deletar').hide();	
+	}

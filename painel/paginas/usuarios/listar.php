@@ -66,7 +66,7 @@ for($i=0; $i<$linhas; $i++){
         <td class="esc">{$nivel}</td>
         <td class="esc"><img src="images/perfil/{$foto}" width="25px"></td>
         <td>
-	          <big><a href="#" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
+	          	<big><a href="#" onclick="editar('{$id}','{$nome}','{$email}','{$telefone}','{$endereco}','{$nivel}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
 
 		        <a href="#" title="Excluir usuário" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><big><i class="fa fa-trash-o text-danger"></i></big></a>
 
@@ -118,6 +118,20 @@ HTML;
     	
 
     	$('#modalDados').modal('show');
+	}
+
+	function editar(id, nome, email, telefone, endereco, nivel){
+		  $('#mensagem').text('');
+    	$('#titulo_inserir').text('Editar Registro');
+
+    	$('#id').val(id);
+    	$('#nome').val(nome);
+    	$('#email').val(email);
+    	$('#telefone').val(telefone);
+    	$('#endereco').val(endereco);
+    	$('#nivel').val(nivel).change();
+
+    	$('#modalForm').modal('show');
 	}
 
 
