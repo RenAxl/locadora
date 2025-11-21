@@ -66,9 +66,19 @@ for($i=0; $i<$linhas; $i++){
         <td class="esc">{$nivel}</td>
         <td class="esc"><img src="images/perfil/{$foto}" width="25px"></td>
         <td>
-	          	<big><a href="#" onclick="editar('{$id}','{$nome}','{$email}','{$telefone}','{$endereco}','{$nivel}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
+	          <big><a href="#" onclick="editar('{$id}','{$nome}','{$email}','{$telefone}','{$endereco}','{$nivel}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
 
-		        <a href="#" title="Excluir usuário" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><big><i class="fa fa-trash-o text-danger"></i></big></a>
+		        	<li class="dropdown head-dpdn2" style="display: inline-block;">
+                <a href="#" class="dropdown-toggle" title="Excluir usuário" data-toggle="dropdown" aria-expanded="false"><big><i class="fa fa-trash-o text-danger"></i></big></a>
+
+                <ul class="dropdown-menu" style="margin-left:-230px;">
+                <li>
+                <div class="notification_desc2">
+                <p>Confirmar Exclusão? <a href="#" onclick="excluir('{$id}')"><span class="text-danger">Sim</span></a></p>
+                </div>
+                </li>										
+                </ul>
+            </li>
 
             <big><a href="#" onclick="mostrar('{$nome}','{$email}','{$telefone}','{$endereco}','{$ativo}','{$dataF}', '{$senha}', '{$nivel}', '{$foto}')" title="Mostrar Dados"><i class="fa fa-info-circle text-primary"></i></a></big>
             

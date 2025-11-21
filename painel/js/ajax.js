@@ -89,3 +89,23 @@ $("#form").submit(function () {
     	$('#ids').val('');
     	$('#btn-deletar').hide();	
 	}
+
+    function excluir(id){	
+    $('#mensagem-excluir').text('Excluindo...')
+    
+    $.ajax({
+        url: 'paginas/' + pag + "/excluir.php",
+        method: 'POST',
+        data: {id},
+        dataType: "html",
+
+        success:function(mensagem){
+            if (mensagem.trim() == "Excluído com Sucesso") {            	
+                listar();
+            } else {
+                $('#mensagem-excluir').addClass('text-danger')
+                $('#mensagem-excluir').text(mensagem)
+            }
+        }
+    });
+}
