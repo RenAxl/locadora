@@ -34,3 +34,10 @@ function ativar(id, acao){
         }
     });
 }
+
+function inserir(){   
+    $('#mensagem').text('');
+    $('#titulo_inserir').text('Inserir Registro');
+    $('#modalForm').modal('show');
+    limparCampos();
+}
