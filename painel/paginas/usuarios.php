@@ -4,11 +4,18 @@ $pag = 'usuarios';
 ?>
 
 <div class="main-page margin-mobile">
-<a onclick="inserir()" type="button" class="btn btn-primary"><span class="fa fa-plus"></span> Usuário</a>
+<a onclick="inserir()" type="button" class="btn btn-primary">
+  <span class="fa fa-plus"></span> Usuário</a>
+
+<a href="#" data-toggle="dropdown"  class="btn btn-danger dropdown-toggle" id="btn-deletar" style="display:none">
+   <span class="fa fa-trash-o"></span> Deletar</a>
+
 <div class="bs-example widget-shadow" style="padding:15px" id="listar">
     
 </div>
 </div>
+
+<input id="ids">
 
 
 <div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
