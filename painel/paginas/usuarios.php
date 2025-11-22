@@ -7,15 +7,24 @@ $pag = 'usuarios';
 <a onclick="inserir()" type="button" class="btn btn-primary">
   <span class="fa fa-plus"></span> Usuário</a>
 
-<a href="#" data-toggle="dropdown"  class="btn btn-danger dropdown-toggle" id="btn-deletar" style="display:none">
-   <span class="fa fa-trash-o"></span> Deletar</a>
+<li class="dropdown head-dpdn2" style="display: inline-block;">		
+		<a href="#" data-toggle="dropdown"  class="btn btn-danger dropdown-toggle" id="btn-deletar" style="display:none"><span class="fa fa-trash-o"></span> Deletar</a>
+
+		<ul class="dropdown-menu">
+		<li>
+		<div class="notification_desc2">
+		<p>Excluir Selecionados? <a href="#" onclick="deletarSel()"><span class="text-danger">Sim</span></a></p>
+		</div>
+		</li>										
+		</ul>
+</li>
 
 <div class="bs-example widget-shadow" style="padding:15px" id="listar">
     
 </div>
 </div>
 
-<input id="ids">
+<input type="hidden" id="ids">
 
 
 <div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
