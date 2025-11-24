@@ -14,7 +14,13 @@ if(@count($res) > 0 and $id != $id_reg){
 	exit();
 }
 
+if($id == ""){
 $query = $pdo->prepare("INSERT INTO $tabela SET nome = :nome ");
+	
+}else{
+$query = $pdo->prepare("UPDATE $tabela SET nome = :nome where id = '$id'");
+}
+
 $query->bindValue(":nome", "$nome");
 $query->execute();
 

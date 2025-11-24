@@ -34,7 +34,7 @@ echo <<<HTML
 <td class="esc">{$total_acessos}</td>
 
 <td>
-	<big><a href="#" title="Editar"><i class="fa fa-edit text-primary"></i></a></big>
+	<big><a href="#" onclick="editar('{$id}','{$nome}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
 
 		<a href="#" title="Excluir" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><big><i class="fa fa-trash-o text-danger"></i></big></a>
 
@@ -58,6 +58,7 @@ HTML;
 ?>
 
 <script type="text/javascript">
+
 	$(document).ready( function () {		
     $('#tabela').DataTable({
     	"language" : {
@@ -67,4 +68,15 @@ HTML;
 		"stateSave": true
     });
 } );
+
+	function editar(id, nome){
+		$('#mensagem').text('');
+    	$('#titulo_inserir').text('Editar Registro');
+
+    	$('#id').val(id);
+    	$('#nome').val(nome);
+    
+    	$('#modalForm').modal('show');
+	}
+    
 </script>
