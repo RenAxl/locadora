@@ -145,6 +145,19 @@ if(@$_GET['pagina'] != ""){
 									
 								</ul>
 							</li>
+
+										<li class="treeview <?php echo $menu_cadastros ?>">
+								<a href="#">
+									<i class="fa fa-plus"></i>
+									<span>Cadastros</span>
+									<i class="fa fa-angle-left pull-right"></i>
+								</a>
+								<ul class="treeview-menu">
+									<li class="<?php echo $grupo_acessos ?>"><a href="grupo_acessos"><i class="fa fa-angle-right"></i> Grupos</a></li>
+									
+								</ul>
+							</li>
+
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
