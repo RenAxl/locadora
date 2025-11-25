@@ -23,7 +23,10 @@ HTML;
 for($i=0; $i<$linhas; $i++){
 	$id = $res[$i]['id'];
 	$nome = $res[$i]['nome'];
-    $total_acessos = 'N/A';
+    
+$query2 = $pdo->query("SELECT * from acessos where grupo = '$id' ");
+$res2 = $query2->fetchAll(PDO::FETCH_ASSOC);
+$total_acessos = @count($res2);
 		
 echo <<<HTML
 <tr>
