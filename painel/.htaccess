@@ -4,3 +4,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^usuarios(.*)$ index.php?pagina=usuarios [L]
 RewriteRule ^grupo_acessos(.*)$ index.php?pagina=grupo_acessos [L]
+RewriteRule ^acessos(.*)$ index.php?pagina=acessos [L]

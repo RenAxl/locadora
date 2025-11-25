@@ -154,7 +154,7 @@ if(@$_GET['pagina'] != ""){
 								</a>
 								<ul class="treeview-menu">
 									<li class="<?php echo $grupo_acessos ?>"><a href="grupo_acessos"><i class="fa fa-angle-right"></i> Grupos</a></li>
-									
+									<li class="<?php echo $acessos ?>"><a href="acessos"><i class="fa fa-angle-right"></i> Acessos</a></li>
 								</ul>
 							</li>
 
