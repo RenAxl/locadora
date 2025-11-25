@@ -1,77 +1,71 @@
 <?php 
+$tabela = 'acessos';
+require_once("../../../conexao.php");
 
+$query = $pdo->query("SELECT * from $tabela order by id desc");
+$res = $query->fetchAll(PDO::FETCH_ASSOC);
+$linhas = @count($res);
+if($linhas > 0){
 echo <<<HTML
 <small>
 	<table class="table table-hover" id="tabela">
-		<thead> 
-			<tr>
-				<th>Nome</th>	
-				<th>Chave</th>	
-				<th>Grupo</th>
-				<th>Ações</th>
-			</tr> 
-		</thead> 
-
-		<tbody>	
-			<tr>
-				<td>Usuários</td>
-				<td>usuarios</td>
-				<td>Cadastros</td>
-				<td>
-					<big>
-						<a href="#" title="Editar">
-							<i class="fa fa-edit text-primary"></i>
-						</a>
-					</big>
-					|
-					<big>
-						<a href="#" title="Excluir">
-							<i class="fa fa-trash-o text-danger"></i>
-						</a>
-					</big>
-				</td>
-			</tr>
-
-			<tr>
-				<td>Clientes</td>
-				<td>clientes</td>
-				<td>Cadastros</td>
-				<td>
-					<big>
-						<a href="#" title="Editar">
-							<i class="fa fa-edit text-primary"></i>
-						</a>
-					</big>
-					|
-					<big>
-						<a href="#" title="Excluir">
-							<i class="fa fa-trash-o text-danger"></i>
-						</a>
-					</big>
-				</td>
-			</tr>
-
-			<tr>
-				<td>Produtos</td>
-				<td>produtos</td>
-				<td>Estoque</td>
-				<td>
-					<big>
-						<a href="#" title="Editar">
-							<i class="fa fa-edit text-primary"></i>
-						</a>
-					</big>
-					|
-					<big>
-						<a href="#" title="Excluir">
-							<i class="fa fa-trash-o text-danger"></i>
-						</a>
-					</big>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</small>
+	<thead> 
+	<tr>
+	<th>Nome</th>	
+	<th>Chave</th>	
+	<th>Grupo</th>
+	<th>Ações</th>
+	</tr> 
+	</thead> 
+	<tbody>	
 HTML;
+
+for($i=0; $i<$linhas; $i++){
+	$id = $res[$i]['id'];
+	$nome = $res[$i]['nome'];
+	$grupo = $res[$i]['grupo'];
+	$chave = $res[$i]['chave'];
+	$pagina = $res[$i]['pagina'];
+
+$query2 = $pdo->query("SELECT * from grupo_acessos where id = '$grupo' ");
+$res2 = $query2->fetchAll(PDO::FETCH_ASSOC);
+if(@count($res2) > 0){
+	$nome_grupo = $res2[0]['nome'];
+}else{
+	$nome_grupo = 'Sem Grupo';
+}
+
+echo <<<HTML
+<tr>
+<td>
+<input type="checkbox" id="seletor-{$id}" class="form-check-input" >
+{$nome}
+</td>
+<td class="esc">{$chave}</td>
+<td class="esc">{$nome_grupo}</td>
+<td>
+	<big><a href="#" title="Editar">
+            <i class="fa fa-edit text-primary"></i>
+        </a>
+    </big>
+    <big><a href="#" title="Excluir">
+            <i class="fa fa-trash-o text-danger"></i>
+        </a>
+    </big>  
+</td>
+</tr>
+HTML;
+
+}
+
+echo <<<HTML
+</tbody>
+<small><div align="center" id="mensagem-excluir"></div></small>
+</table>
+HTML;
+
+}else{
+	echo '<small>Nenhum Registro Encontrado!</small>';
+}
 
 ?>
