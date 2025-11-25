@@ -44,8 +44,9 @@ echo <<<HTML
 <td class="esc">{$chave}</td>
 <td class="esc">{$nome_grupo}</td>
 <td>
-	<big><a href="#" title="Editar">
-            <i class="fa fa-edit text-primary"></i>
+	<big><a href="#" onclick="editar('{$id}','{$nome}','{$chave}',
+            '{$grupo}','{$pagina}')" title="Editar">
+                <i class="fa fa-edit text-primary"></i>
         </a>
     </big>
     <big><a href="#" title="Excluir">
@@ -81,5 +82,18 @@ HTML;
 		"stateSave": true
     });
 } );
+
+    function editar(id, nome, chave, grupo, pagina){
+		$('#mensagem').text('');
+    	$('#titulo_inserir').text('Editar Registro');
+
+    	$('#id').val(id);
+    	$('#nome').val(nome);
+    	$('#chave').val(chave);
+    	$('#grupo').val(grupo).change();
+    	$('#pagina').val(pagina).change();
+    
+    	$('#modalForm').modal('show');
+	}
 
 </script>

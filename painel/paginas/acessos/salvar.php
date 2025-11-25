@@ -17,8 +17,12 @@ if(@count($res) > 0 and $id != $id_reg){
 	exit();
 }
 
-$query = $pdo->prepare("INSERT INTO $tabela SET nome = :nome, 
-chave = :chave, grupo = :grupo, pagina = :pagina ");
+if($id == ""){
+$query = $pdo->prepare("INSERT INTO $tabela SET nome = :nome, chave = :chave, grupo = :grupo, pagina = :pagina ");
+	
+}else{
+$query = $pdo->prepare("UPDATE $tabela SET nome = :nome, chave = :chave, grupo = :grupo, pagina = :pagina where id = '$id'");
+}
 
 $query->bindValue(":nome", "$nome");
 $query->bindValue(":chave", "$chave");
@@ -27,4 +31,5 @@ $query->bindValue(":pagina", "$pagina");
 $query->execute();
 
 echo 'Salvo com Sucesso';
+
  ?>
