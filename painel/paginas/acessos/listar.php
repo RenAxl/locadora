@@ -69,3 +69,17 @@ HTML;
 }
 
 ?>
+
+<script type="text/javascript">
+
+	$(document).ready( function () {		
+    $('#tabela').DataTable({
+    	"language" : {
+            //"url" : '//cdn.datatables.net/plug-ins/1.13.2/i18n/pt-BR.json'
+        },
+        "ordering": false,
+		"stateSave": true
+    });
+} );
+
+</script>
