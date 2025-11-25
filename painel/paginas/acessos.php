@@ -1,11 +1,14 @@
 <?php 
 $pag = 'acessos';
+require_once("../conexao.php");
 
  ?>
 
  <div class="main-page margin-mobile">
 
- <a onclick="inserir()" type="button" class="btn btn-primary"><span class="fa fa-plus"></span> Acesso</a>
+ <a onclick="inserir()" type="button" class="btn btn-primary">
+    <span class="fa fa-plus"></span> Acesso
+</a>
 
 <div class="bs-example widget-shadow " style="padding:15px" id="listar">
 
@@ -40,7 +43,17 @@ $pag = 'acessos';
 						<div class="col-md-2">						
 								<label>Grupo</label>
 								<select class="form-control" name="grupo" id="grupo">
-								    <option value="0">Sem Grupo</option>	
+								    <option value="0">Sem Grupo</option>
+                                        <?php 
+                                            $query = $pdo->query("SELECT * from grupo_acessos order by id asc");
+                                            $res = $query->fetchAll(PDO::FETCH_ASSOC);
+                                            $linhas = @count($res);
+                                            if($linhas > 0){
+                                            for($i=0; $i<$linhas; $i++){
+                                        ?>
+                                        <option value="<?php echo $res[$i]['id'] ?>"><?php echo $res[$i]['nome'] ?></option>
+
+                                        <?php } } ?>	
 								</select>	
 						</div>
 
