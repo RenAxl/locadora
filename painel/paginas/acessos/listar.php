@@ -49,10 +49,21 @@ echo <<<HTML
                 <i class="fa fa-edit text-primary"></i>
         </a>
     </big>
-    <big><a href="#" title="Excluir">
-            <i class="fa fa-trash-o text-danger"></i>
+	<li class="dropdown head-dpdn2" style="display: inline-block;">
+		<a href="#" title="Excluir" class="dropdown-toggle" data-toggle="dropdown" 
+           aria-expanded="false">
+                <big><i class="fa fa-trash-o text-danger"></i></big>
         </a>
-    </big>  
+		<ul class="dropdown-menu" style="margin-left:-230px;">
+            <li>
+                <div class="notification_desc2">
+                    <p>Confirmar Exclusão? <a href="#" onclick="excluir('{$id}')">
+                        <span class="text-danger">Sim</span></a>
+                    </p>
+                </div>
+            </li>										
+		</ul>
+    </li> 
 </td>
 </tr>
 HTML;
