@@ -10,11 +10,17 @@ require_once("../conexao.php");
     <span class="fa fa-plus"></span> Acesso
 </a>
 
+<a href="#" data-toggle="dropdown" class="btn btn-danger dropdown-toggle" 
+	id="btn-deletar" style="display:none"><span class="fa fa-trash-o"></span> Deletar
+</a>
+
 <div class="bs-example widget-shadow " style="padding:15px" id="listar">
 
 </div>
 
  </div>
+
+ <input id="ids">
 
  <div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg" style="width:80%">
