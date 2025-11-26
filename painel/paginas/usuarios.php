@@ -169,6 +169,9 @@ $pag = 'usuarios';
 			</div>
 			
 			<div class="modal-body">
+				<div class="row" id="listar_permissoes">
+					
+				</div>
 
 				<br>
 				<input type="hidden" name="id" id="id_permissoes">
@@ -182,3 +185,20 @@ $pag = 'usuarios';
 <script type="text/javascript">var pag = "<?=$pag?>"</script>
 <script src="js/ajax.js"></script>
 
+<script type="text/javascript">
+
+	function listarPermissoes(id){
+		$.ajax({
+        url: 'paginas/' + pag + "/listar_permissoes.php",
+        method: 'POST',
+        data: {id},
+        dataType: "html",
+
+        success:function(result){        	
+            $("#listar_permissoes").html(result);
+            $('#mensagem_permissao').text('');
+        }
+    });
+	}
+
+</script>
