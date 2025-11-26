@@ -84,7 +84,8 @@ for($i=0; $i<$linhas; $i++){
             
             <big><a href="#" onclick="ativar('{$id}', '{$acao}')" title="{$titulo_link}"><i class="fa {$icone} text-success"></i></a></big>
 
-            <big><a class="{$mostrar_adm}" href="#" title="Dar Permissões"><i class="fa fa-lock text-primary"></i></a></big>
+            <big><a class="{$mostrar_adm}" href="#" onclick="permissoes('{$id}', '{$nome}')" title="Dar Permissões">
+                 <i class="fa fa-lock text-primary"></i></a></big>
 
         </td>      
       </tr>
@@ -175,5 +176,12 @@ HTML;
 		limparCampos();
 	}
 
+  function permissoes(id, nome){
+		    	
+    	$('#id_permissoes').val(id);
+    	$('#nome_permissoes').text(nome);    	
+
+    	$('#modalPermissoes').modal('show');
+	}
 
 </script>
