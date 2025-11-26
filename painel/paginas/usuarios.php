@@ -158,7 +158,7 @@ $pag = 'usuarios';
 				<h4 class="modal-title" id="exampleModalLabel"><span id="nome_permissoes"></span>
 
 					<span style="position:absolute; right:35px">
-						<input class="form-check-input" type="checkbox" id="input-todos">
+						<input class="form-check-input" type="checkbox" id="input-todos" onchange="marcarTodos()">
 						<label class="" >Marcar Todos</label>
 					</span>
 
@@ -210,6 +210,47 @@ $pag = 'usuarios';
 
         success:function(result){        	
            listarPermissoes(usuario);
+        }
+    });
+	}
+
+	function marcarTodos(){
+		let checkbox = document.getElementById('input-todos');
+		var usuario = $('#id_permissoes').val();
+		
+		if(checkbox.checked) {
+		    adicionarPermissoes(usuario);		    
+		} else {
+		    limparPermissoes(usuario);
+		}
+	}
+
+
+	function adicionarPermissoes(id_usuario){
+		
+		$.ajax({
+        url: 'paginas/' + pag + "/add_permissoes.php",
+        method: 'POST',
+        data: {id_usuario},
+        dataType: "html",
+
+        success:function(result){        	
+           listarPermissoes(id_usuario);
+        }
+    });
+	}
+
+
+	function limparPermissoes(id_usuario){
+		
+		$.ajax({
+        url: 'paginas/' + pag + "/limpar_permissoes.php",
+        method: 'POST',
+        data: {id_usuario},
+        dataType: "html",
+
+        success:function(result){        	
+           listarPermissoes(id_usuario);
         }
     });
 	}
