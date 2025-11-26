@@ -201,4 +201,17 @@ $pag = 'usuarios';
     });
 	}
 
+	function adicionarPermissao(id, usuario){
+		 $.ajax({
+        url: 'paginas/' + pag + "/add_permissao.php",
+        method: 'POST',
+        data: {id, usuario},
+        dataType: "html",
+
+        success:function(result){        	
+           listarPermissoes(usuario);
+        }
+    });
+	}
+
 </script>
