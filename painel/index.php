@@ -430,6 +430,33 @@ if($linhas > 0){
 	</div>
 </div>
 
+<script type="text/javascript">
+	$('#modalPerfil').on('show.bs.modal', function () {
+    $('#form-perfil')[0].reset();
+    $('#foto_perfil').val('');
+    $('#target-usu').attr('src', 'images/perfil/<?php echo $foto_usuario ?>');
+});
+</script>
+
+<script type="text/javascript">
+	function carregarImgPerfil() {
+    var target = document.getElementById('target-usu');
+    var file = document.querySelector("#foto_perfil").files[0];
+    
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            target.src = reader.result;
+        };
+
+        if (file) {
+            reader.readAsDataURL(file);
+
+        } else {
+            target.src = "";
+        }
+    }
+</script>
 
 <script type="text/javascript">
 	function carregarImgLogo() {
