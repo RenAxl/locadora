@@ -1,16 +1,31 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+ <!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo PHP</title>
+	<title>Locadora</title>
+
+	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+ 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+ 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/x-icon" href="img/icone.png">
+
 </head>
 <body>
-    <h1>
-        <?php
-            echo "Projeto Locadora Iniciado";
-        ?>
-    </h1>
+	<div class="login">		
+		<div class="form">
+			<img src="img/logo.png" class="imagem">
+			<form>
+				<input type="email" name="usuario" placeholder="Seu Email" required>
+				<input type="password" name="senha" placeholder="Senha" required>
+				<button>Login</button>
+			</form>	
+			<br>
+			<p class="recuperar"><a title="Clique para recupearar a senha" href="" data-bs-toggle="modal" data-bs-target="#exampleModal">Recuperar Senha</a></p>
+
+		</div>
+	</div>
 </body>
 </html>
 
