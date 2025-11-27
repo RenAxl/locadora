@@ -16,7 +16,7 @@
 	<div class="login">		
 		<div class="form">
 			<img src="img/logo.png" class="imagem">
-			<form>
+			<form method="post" action="autenticar.php">
 				<input type="email" name="usuario" placeholder="Seu Email" required>
 				<input type="password" name="senha" placeholder="Senha" required>
 				<button>Login</button>
