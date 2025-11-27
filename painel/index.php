@@ -1,4 +1,6 @@
 <?php
+@session_start();
+require_once("../conexao.php");
 
 $pag_inicial = 'home';
 
@@ -6,6 +8,20 @@ if(@$_GET['pagina'] != ""){
 	$pagina = @$_GET['pagina'];
 }else{
 	$pagina = $pag_inicial;
+}
+
+$id_usuario = @$_SESSION['id'];
+$query = $pdo->query("SELECT * from usuarios where id = '$id_usuario'");
+$res = $query->fetchAll(PDO::FETCH_ASSOC);
+$linhas = @count($res);
+if($linhas > 0){
+	$nome_usuario = $res[0]['nome'];
+	$email_usuario = $res[0]['email'];
+	$telefone_usuario = $res[0]['telefone'];
+	$senha_usuario = $res[0]['senha'];
+	$nivel_usuario = $res[0]['nivel'];
+	$foto_usuario = $res[0]['foto'];
+	$endereco_usuario = $res[0]['endereco'];
 }
 
 ?>
