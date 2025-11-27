@@ -439,6 +439,8 @@ if($linhas > 0){
 </script>
 
 <script type="text/javascript">
+	
+	//ESTA FUNÇÃO É PARA O USUÁRIO SELECIONAR A IMAGEM DO SEU PC.
 	function carregarImgPerfil() {
     var target = document.getElementById('target-usu');
     var file = document.querySelector("#foto_perfil").files[0];
