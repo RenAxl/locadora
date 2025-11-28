@@ -263,7 +263,7 @@ if($linhas > 0){
 								</div>
 							</a>
 							<ul class="dropdown-menu drp-mnu">
-								<li><a href="#"><i class="fa fa-cog"></i> Configurações</a></li>
+								<li><a href="" data-toggle="modal" data-target="#modalConfig"><i class="fa fa-cog"></i> Configurações</a></li>
 								<li> <a href="" data-toggle="modal" data-target="#modalPerfil"><i class="fa fa-user"></i> Perfil</a> </li> 	
 								<li><a href="#"><i class="fa fa-sign-out"></i> Sair</a></li>
 							</ul>
@@ -421,6 +421,105 @@ if($linhas > 0){
 
 				<br>
 				<small><div id="msg-perfil" align="center"></div></small>
+			</div>
+			<div class="modal-footer">       
+				<button type="submit" class="btn btn-primary">Salvar</button>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- Modal Config -->
+<div class="modal fade" id="modalConfig" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="exampleModalLabel">Editar Configurações</h4>
+				<button id="btn-fechar-config" type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -25px">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form id="form-config">
+			<div class="modal-body">
+				
+					<div class="row">
+						<div class="col-md-4">							
+								<label>Nome do Projeto</label>
+								<input type="text" class="form-control" id="nome_sistema" name="nome_sistema" placeholder="Delivery Interativo" required>							
+						</div>
+
+						<div class="col-md-4">							
+								<label>Email Sistema</label>
+								<input type="email" class="form-control" id="email_sistema" name="email_sistema" placeholder="Email do Sistema">							
+						</div>
+
+
+						<div class="col-md-4">							
+								<label>Telefone Sistema</label>
+								<input type="text" class="form-control" id="telefone_sistema" name="telefone_sistema" placeholder="Telefone do Sistema" required>							
+						</div>
+
+					</div>
+
+
+					<div class="row">
+						<div class="col-md-6">							
+								<label>Endereço <small>(Rua Número Bairro e Cidade)</small></label>
+								<input type="text" class="form-control" id="endereco_sistema" name="endereco_sistema" placeholder="Rua X...">							
+						</div>
+
+						<div class="col-md-6">							
+								<label>Instagram</label>
+								<input type="text" class="form-control" id="instagram_sistema" name="instagram_sistema" placeholder="Link do Instagram">							
+						</div>
+					</div>
+	
+					<div class="row">
+						<div class="col-md-4">						
+								<div class="form-group"> 
+									<label>Logo (*PNG)</label> 
+									<input class="form-control" type="file" name="foto-logo" id="foto-logo">
+								</div>						
+							</div>
+							<div class="col-md-2">
+								<div id="divImg">
+									<img src="../img/logo.png"  width="80px" id="target-logo">									
+								</div>
+							</div>
+
+
+							<div class="col-md-4">						
+								<div class="form-group"> 
+									<label>Ícone (*Png)</label> 
+									<input class="form-control" type="file" name="foto-icone" id="foto-icone">
+								</div>						
+							</div>
+							<div class="col-md-2">
+								<div id="divImg">
+									<img src="../img/logo.png"  width="50px" id="target-icone">									
+								</div>
+							</div>
+
+						
+					</div>
+
+					<div class="row">
+							<div class="col-md-4">						
+								<div class="form-group"> 
+									<label>Logo Relatório (*Jpg)</label> 
+									<input class="form-control" type="file" name="foto-logo-rel" id="foto-logo-rel">
+								</div>						
+							</div>
+							<div class="col-md-2">
+								<div id="divImg">
+									<img src="../img/logo.png"  width="80px" id="target-logo-rel">									
+								</div>
+							</div>						
+					</div>									
+
+				<br>
+				<small><div id="msg-config" align="center"></div></small>
 			</div>
 			<div class="modal-footer">       
 				<button type="submit" class="btn btn-primary">Salvar</button>
