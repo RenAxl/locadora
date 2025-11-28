@@ -49,7 +49,7 @@ if($total_reg > 0){
 
 
 
-//SCRIPT PARA SUBIR FOTO NO SERVIDOR, O DO PROFESSOR HUGO NÃO ESTAVA FUNCIONANDO.
+//CÓDIGO DO CHATGPT. O CÓDIGO DO PROFESSOR HUGO NÃO ESTAVA FUNCIONANDO.
 $nome_img = date('d-m-Y H:i:s') .'-'.@$_FILES['foto']['name'];
 $nome_img = preg_replace('/[ :]+/' , '-' , $nome_img);
 
@@ -83,8 +83,6 @@ if(@$_FILES['foto']['name'] != ""){
         exit();
     }
 }
-
-
 
 
 $query = $pdo->prepare("UPDATE $tabela SET nome = :nome, email = :email, telefone = :telefone, senha = :senha, senha_crip = '$senha_crip', endereco = :endereco, foto = '$foto' where id = '$id'");
