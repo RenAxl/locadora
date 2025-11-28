@@ -479,7 +479,9 @@ if($linhas > 0){
 						<div class="col-md-4">						
 								<div class="form-group"> 
 									<label>Logo (*PNG)</label> 
-									<input class="form-control" type="file" name="foto-logo" id="foto-logo">
+									<input class="form-control" type="file" 
+									 name="foto-logo" onChange="carregarImgLogo();" 
+									 id="foto-logo">
 								</div>						
 							</div>
 							<div class="col-md-2">
@@ -492,7 +494,10 @@ if($linhas > 0){
 							<div class="col-md-4">						
 								<div class="form-group"> 
 									<label>Ícone (*Png)</label> 
-									<input class="form-control" type="file" name="foto-icone" id="foto-icone">
+									<input class="form-control" type="file" 
+									 name="foto-icone" 
+									 onChange="carregarImgIcone();"
+									 id="foto-icone">
 								</div>						
 							</div>
 							<div class="col-md-2">
@@ -508,7 +513,10 @@ if($linhas > 0){
 							<div class="col-md-4">						
 								<div class="form-group"> 
 									<label>Logo Relatório (*Jpg)</label> 
-									<input class="form-control" type="file" name="foto-logo-rel" id="foto-logo-rel">
+									<input class="form-control" type="file" 
+									 name="foto-logo-rel" 
+									 onChange="carregarImgLogoRel();"
+									 id="foto-logo-rel">
 								</div>						
 							</div>
 							<div class="col-md-2">
@@ -536,6 +544,21 @@ if($linhas > 0){
     $('#form-perfil')[0].reset();
     $('#foto_perfil').val('');
     $('#target-usu').attr('src', 'images/perfil/<?php echo $foto_usuario ?>');
+});
+</script>
+
+<script type="text/javascript">
+
+	//Limpar os campos da Modal do formulário de editar configurações ao fechar a modal sem salvar os dados.
+    $('#modalConfig').on('show.bs.modal', function () {
+    $('#form-config')[0].reset();
+    $('#foto-logo').val('');
+    $('#foto-icone').val('');
+    $('#foto-logo-rel').val('');
+    $('#target-logo').attr('src', '../img/logo.png');
+    $('#target-icone').attr('src', '../img/logo.png');
+    $('#target-logo-rel').attr('src', '../img/logo.png');
+
 });
 </script>
 
@@ -600,6 +623,8 @@ if($linhas > 0){
 </script>
 
 <script type="text/javascript">
+
+	// Carrega a imagem do logo
 	function carregarImgLogo() {
 		var target = document.getElementById('target-logo');
 		var file = document.querySelector("#foto-logo").files[0];
@@ -620,6 +645,8 @@ if($linhas > 0){
 </script>
 
 <script type="text/javascript">
+
+	// Carrega a imagem do logo relatório do sistema
 	function carregarImgLogoRel() {
 		var target = document.getElementById('target-logo-rel');
 		var file = document.querySelector("#foto-logo-rel").files[0];
@@ -640,6 +667,8 @@ if($linhas > 0){
 </script>
 
 <script type="text/javascript">
+
+	// Carrega a imagem do icone
 	function carregarImgIcone() {
 		var target = document.getElementById('target-icone');
 		var file = document.querySelector("#foto-icone").files[0];
