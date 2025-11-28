@@ -402,15 +402,15 @@ if($linhas > 0){
 					</div>
 					
 					<div class="row">
-						<div class="col-md-8">							
+							<div class="col-md-8">							
 								<label>Foto</label>
-								<input type="file" class="form-control" id="foto_perfil" name="foto" value="<?php echo $foto_usuario ?>" onchange="carregarImgPerfil()">							
-						</div>
+								<input type="file" class="form-control" id="foto_perfil" name="foto" onchange="carregarImgPerfil()">							
+							</div>
 
-						<div class="col-md-4">								
-							<img src="images/perfil/sem-foto.jpg"  width="80px" id="target-usu">								
-							
-						</div>
+							<div class="col-md-4">								
+								<img src="images/perfil/<?php echo !empty($foto_usuario) ? $foto_usuario : 'sem-foto.jpg'; ?>"  
+									width="80px" id="target-usu">								
+							</div>
 
 						
 					</div>
@@ -431,6 +431,8 @@ if($linhas > 0){
 </div>
 
 <script type="text/javascript">
+
+	//Limpar os campos da Modal do formulário de Perfil ao fechar a modal sem salvar os dados.
 	$('#modalPerfil').on('show.bs.modal', function () {
     $('#form-perfil')[0].reset();
     $('#foto_perfil').val('');
@@ -458,6 +460,44 @@ if($linhas > 0){
             target.src = "";
         }
     }
+</script>
+
+ <script type="text/javascript">
+	$("#form-perfil").submit(function () {
+
+		event.preventDefault();
+		var formData = new FormData(this);
+
+		$.ajax({
+			url: "editar-perfil.php",
+			type: 'POST',
+			data: formData,
+
+			success: function (mensagem) {
+				$('#msg-perfil').text('');
+				$('#msg-perfil').removeClass()
+				if (mensagem.trim() == "Editado com Sucesso") {
+
+					$('#btn-fechar-perfil').click();
+					location.reload();				
+						
+
+				} else {
+
+					$('#msg-perfil').addClass('text-danger')
+					$('#msg-perfil').text(mensagem)
+				}
+
+
+			},
+
+			cache: false,
+			contentType: false,
+			processData: false,
+
+		});
+
+	});
 </script>
 
 <script type="text/javascript">
