@@ -446,18 +446,27 @@ if($linhas > 0){
 					<div class="row">
 						<div class="col-md-4">							
 								<label>Nome do Projeto</label>
-								<input type="text" class="form-control" id="nome_sistema" name="nome_sistema" placeholder="Delivery Interativo" required>							
+								<input type="text" class="form-control" 
+									   id="nome_sistema" name="nome_sistema" 
+									   value="<?php echo @$nome_sistema ?>"
+									   placeholder="Delivery Interativo" required>							
 						</div>
 
 						<div class="col-md-4">							
 								<label>Email Sistema</label>
-								<input type="email" class="form-control" id="email_sistema" name="email_sistema" placeholder="Email do Sistema">							
+								<input type="email" class="form-control" 
+									id="email_sistema" name="email_sistema"
+									value="<?php echo @$email_sistema ?>" 
+									placeholder="Email do Sistema">							
 						</div>
 
 
 						<div class="col-md-4">							
 								<label>Telefone Sistema</label>
-								<input type="text" class="form-control" id="telefone_sistema" name="telefone_sistema" placeholder="Telefone do Sistema" required>							
+								<input type="text" class="form-control" 
+									id="telefone_sistema" name="telefone_sistema" 
+									value="<?php echo @$telefone_sistema ?>"
+									placeholder="Telefone do Sistema" required>							
 						</div>
 
 					</div>
@@ -466,12 +475,18 @@ if($linhas > 0){
 					<div class="row">
 						<div class="col-md-6">							
 								<label>Endereço <small>(Rua Número Bairro e Cidade)</small></label>
-								<input type="text" class="form-control" id="endereco_sistema" name="endereco_sistema" placeholder="Rua X...">							
+								<input type="text" class="form-control" 
+									id="endereco_sistema" name="endereco_sistema" 
+									value="<?php echo @$endereco_sistema ?>"
+									placeholder="Rua X...">							
 						</div>
 
 						<div class="col-md-6">							
 								<label>Instagram</label>
-								<input type="text" class="form-control" id="instagram_sistema" name="instagram_sistema" placeholder="Link do Instagram">							
+								<input type="text" class="form-control" 
+									id="instagram_sistema" name="instagram_sistema" 
+									value="<?php echo @$instagram_sistema ?>"
+									placeholder="Link do Instagram">							
 						</div>
 					</div>
 	
@@ -486,10 +501,10 @@ if($linhas > 0){
 							</div>
 							<div class="col-md-2">
 								<div id="divImg">
-									<img src="../img/logo.png"  width="80px" id="target-logo">									
+									<img src="../img/<?php echo $logo_sistema ?>"   
+									     width="80px" id="target-logo">									
 								</div>
 							</div>
-
 
 							<div class="col-md-4">						
 								<div class="form-group"> 
@@ -502,11 +517,10 @@ if($linhas > 0){
 							</div>
 							<div class="col-md-2">
 								<div id="divImg">
-									<img src="../img/logo.png"  width="50px" id="target-icone">									
+									<img src="../img/<?php echo $icone_sistema ?>"  
+										width="50px" id="target-icone">									
 								</div>
 							</div>
-
-						
 					</div>
 
 					<div class="row">
@@ -521,10 +535,11 @@ if($linhas > 0){
 							</div>
 							<div class="col-md-2">
 								<div id="divImg">
-									<img src="../img/logo.png"  width="80px" id="target-logo-rel">									
+									<img src="../img/<?php echo @$logo_rel ?>"  
+										width="80px" id="target-logo-rel">									
 								</div>
 							</div>						
-					</div>									
+					</div>								
 
 				<br>
 				<small><div id="msg-config" align="center"></div></small>
@@ -555,9 +570,9 @@ if($linhas > 0){
     $('#foto-logo').val('');
     $('#foto-icone').val('');
     $('#foto-logo-rel').val('');
-    $('#target-logo').attr('src', '../img/logo.png');
-    $('#target-icone').attr('src', '../img/logo.png');
-    $('#target-logo-rel').attr('src', '../img/logo.png');
+    $('#target-logo').attr('src', '../img/<?php echo $logo_sistema ?>');
+    $('#target-icone').attr('src', '../img/<?php echo $icone_sistema ?>');
+    $('#target-logo-rel').attr('src', '../img/<?php echo @$logo_rel ?>');
 
 });
 </script>
@@ -686,4 +701,45 @@ if($linhas > 0){
 			target.src = "";
 		}
 	}
+</script>
+
+ <script type="text/javascript">
+	$("#form-config").submit(function () {
+
+		event.preventDefault();
+		var formData = new FormData(this);
+
+		console.log("➡ FormData criado");
+		console.log("➡ FILE:", $("#foto-logo")[0].files[0]);
+
+		$.ajax({
+			url: "editar-config.php",
+			type: 'POST',
+			data: formData,
+
+			success: function (mensagem) {
+				$('#msg-config').text('');
+				$('#msg-config').removeClass()
+				if (mensagem.trim() == "Editado com Sucesso") {
+
+					$('#btn-fechar-config').click();
+					location.reload();				
+						
+
+				} else {
+
+					$('#msg-config').addClass('text-danger')
+					$('#msg-config').text(mensagem)
+				}
+
+
+			},
+
+			cache: false,
+			contentType: false,
+			processData: false,
+
+		});
+
+	});
 </script>
