@@ -34,3 +34,24 @@ require_once("conexao.php");
 </body>
 </html>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" >
+    <div class="modal-content form">
+     
+      <form method="post" id="form-recuperar">     
+
+      <div class="modal-body "> 
+			
+			<form method="post" id="form-recuperar">
+				<input placeholder="Digite seu Email" class="form-control" type="email" name="email" id="email-recuperar" required> 
+				<button type="submit">Recuperar</button>
+			</form>				
+
+		</div>
+       <br>
+       <small><div id="mensagem-recuperar" align="center"></div></small>
+  </form>
+    </div>
+  </div>
+</div>
