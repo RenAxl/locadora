@@ -34,7 +34,7 @@ if($linhas > 0){
 	<title>Locadora</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="" type="image/x-icon">
+	<link rel="shortcut icon" href="../img/<?php echo $icone_sistema ?>" type="image/x-icon">
 
 	<script type="application/x-javascript">
 		addEventListener("load", function() {
@@ -140,7 +140,7 @@ if($linhas > 0){
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<h1><a class="navbar-brand" href="index.php"><span class="fa fa-film"></span> Sistema<span class="dashboard_text">Locadora</span></a></h1>
+						<h1><a class="navbar-brand" href="index.php"><span class="fa fa-film"></span> Sistema<span class="dashboard_text"><?php echo $nome_sistema ?></span></a></h1>
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="sidebar-menu">

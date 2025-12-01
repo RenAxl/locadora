@@ -1,7 +1,12 @@
- <!DOCTYPE html>
+<?php 
+require_once("conexao.php");
+
+ ?>
+
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Locadora</title>
+	<title><?php echo $nome_sistema ?></title>
 
 	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -15,7 +20,7 @@
 <body>
 	<div class="login">		
 		<div class="form">
-			<img src="img/logo.png" class="imagem">
+			<img src="img/<?php echo $logo_sistema ?>" class="imagem">
 			<form method="post" action="autenticar.php">
 				<input type="email" name="usuario" placeholder="Seu Email" required>
 				<input type="password" name="senha" placeholder="Senha" required>
