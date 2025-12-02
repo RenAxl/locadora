@@ -1,6 +1,10 @@
 <?php 
 $pag = 'acessos';
-require_once("../conexao.php");
+
+if(@$acessos == 'ocultar'){
+	echo "<script>window.location='../index.php'</script>";
+    exit();
+}	
 
  ?>
 

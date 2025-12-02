@@ -1,8 +1,13 @@
 <?php
 @session_start();
 require_once("../conexao.php");
+require_once("verificar.php");
 
 $pag_inicial = 'home';
+
+if(@$_SESSION['nivel'] != 'Administrador'){
+	require_once("verificar_permissoes.php");
+}
 
 if(@$_GET['pagina'] != ""){
 	$pagina = @$_GET['pagina'];
